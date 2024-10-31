@@ -81,3 +81,22 @@ def pre_order_iterative(node):
     
 print("pre-order iterative")
 pre_order_iterative(a)
+
+#search in dfs
+# Time Complexity: O(N) - In the worst case, we may need to visit all nodes in the tree.
+# Space Complexity: O(H) - The space complexity is O(H) due to the call stack, 
+# where H is the height of the tree. In the case of a balanced tree, 
+# this would be O(log N), but in the worst case (for example, a degenerate tree), 
+# it could be O(N).
+
+def search(node, target):
+    if node is None:
+        return False
+    
+    elif node.value == target:
+        return True
+    
+    else:
+        return search(node.left, target) or search(node.right, target)
+    
+print(search(a, 15))
